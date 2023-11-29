@@ -16,13 +16,16 @@ struct ContentView: View {
     
     let students: [String] = ["Harry", "Hermione", "Ron"]
     var greeting: String?
-    var totalPerPerson : Double {
-        let numberOfPeople = Double( numberOfPeople + 2)
+    var grandTotal : Double{
         let tipPercentage = Double(tipPercentage)
         let tipToPay = (tipPercentage / 100) * checkAmount
         let grandTotal = tipToPay + checkAmount
-    
-        return grandTotal / numberOfPeople
+        return grandTotal
+    }
+    var totalPerPerson : Double {
+        let numberOfPeopleInDouble = Double( numberOfPeople + 2)
+        
+        return grandTotal / numberOfPeopleInDouble
     }
     @State private var selectedStudent = ""
     var body: some View {
@@ -40,19 +43,23 @@ struct ContentView: View {
                         }
                     }.pickerStyle(.navigationLink)
                     
-                  }
+                }
                 Section("How much do you want to tip"){
                     
                     Picker("Tip percentage", selection: $tipPercentage){
-                        ForEach(tipPercentages, id: \.self){
+                        ForEach(0..<101, id: \.self){
                             Text("\($0) %")
                         }
-                    }.pickerStyle(.segmented)
+                    }.pickerStyle(.navigationLink)
                 }
-                Section{
-                  
+                Section("Amount per person"){
                     Text(totalPerPerson ,format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
                 }
+            Section("Total Amount to be paid"){
+                Text(grandTotal ,format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+            }
+            
+        
                 
                 
             }.navigationTitle("We Split")
