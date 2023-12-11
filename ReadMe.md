@@ -26,6 +26,12 @@ This project is part of the "100 Days of SwiftUI" tutorial series from [Hacking 
 - Uses the `FocusState` wrapper to manage hiding the number keyboard.
 - Demonstrates basic SwiftUI concepts and user interface elements.
 
+## Screenshots
+
+![Screenshot 1](images/we_split_img1.png)
+![Screenshot 2](images/we_split_img2.png)
+![Screenshot 3](images/we_split_img3.png)
+
 ## Usage
 
 1. Clone the repository.
@@ -56,6 +62,4 @@ open ProjectName.xcodeproj
 
 3. Explore the codebase, experiment with SwiftUI features, and run the app to see the tip calculator in action.
 
-## Acknowledgments
 
-Acknowledgment or credits if any external resources or libraries are used in the project.
